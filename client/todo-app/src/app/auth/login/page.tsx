@@ -13,7 +13,6 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
-  console.log({ email, password });
 
   const handleLogin = async (event: React.FormEvent) => {
     event.preventDefault();
@@ -23,7 +22,6 @@ const Login = () => {
       const response = await login(email, password);
       const { token, userId } = response;
       dispatch(setAuth({ token, userId }));
-      console.log("Login successful:", response);
       router.push("/dashboard");
     } catch (err: any) {
       console.error("Login failed:", err.message);

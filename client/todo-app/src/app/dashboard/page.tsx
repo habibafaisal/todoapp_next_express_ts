@@ -15,10 +15,8 @@ const Dashboard = () => {
   const router = useRouter();
   const [tasks, setTasks] = useState<any[]>([]);
   const { token, userId } = useSelector((state: RootState) => state.auth);
-  console.log({ token, userId });
   const [newTask, setNewTask] = useState("");
 
-  console.log("get tasks ", tasks);
   useEffect(() => {
     fetchTasks();
   }, []);
@@ -27,11 +25,9 @@ const Dashboard = () => {
     if (!token) {
       router.push("/auth/login");
     }
-    console.log("get tasks ");
 
     try {
       const response = await getTasks(token);
-      console.log("response", response);
       if (response) {
         setTasks(response.data);
       }
@@ -61,8 +57,6 @@ const Dashboard = () => {
       );
       await fetchTasks();
       if (response) {
-        // setTasks((prevTasks) => [...prevTasks, response.data]);
-        // setNewTask("");
         alert("Success: Task created!");
       }
     } catch (error) {
@@ -70,7 +64,6 @@ const Dashboard = () => {
     }
   };
 
-  // Handle task completion toggle
   const handleToggleCompletion = async (id: string) => {
     const updatedTask = tasks.find((task) => task._id === id);
     if (!updatedTask) return;
@@ -82,9 +75,7 @@ const Dashboard = () => {
       };
       const response = await updateTask(id, updatedData, token);
       if (response) {
-        console.log("updating", response);
         await fetchTasks();
-
         alert("Success: Task updated!");
       }
     } catch (error) {
@@ -92,13 +83,10 @@ const Dashboard = () => {
     }
   };
 
-  // Handle task deletion
   const handleDeleteTask = async (id: string) => {
     try {
       const response = await deleteTask(id, token);
-      console.log("updating", response);
       if (response) {
-        // setTasks((prevTasks) => prevTasks.filter((task) => task.id !== id));
         await fetchTasks();
         alert("Success: Task deleted!");
       }

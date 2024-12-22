@@ -27,10 +27,7 @@ export const validateToken = async (req: Request, res: Response, next: NextFunct
 
     try {
         const secretKey = process.env.JWT_SECRET || "proparadigm";
-        console.log({ secretKey });
         const decoded = jwt.verify(token, secretKey) as { id: string };
-        console.log({ decoded });
-
         // Fetch the user from the database
         const user = await User.findById(decoded.id).select("-password");
         if (!user) {

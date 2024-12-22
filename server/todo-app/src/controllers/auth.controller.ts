@@ -11,8 +11,6 @@ export const registerWithEmail = expressAsyncHandler(async (req: Request, res: R
 
 export const loginWithEmail = expressAsyncHandler(async (req: Request, res: Response) => {
     const { email, password } = req.body;
-    console.log(email, password);
-
     const { type, message, statusCode, token, userId } = await loginUser(email, password);
     res.status(statusCode).json({ type, code: statusCode, message, token, userId });
 });

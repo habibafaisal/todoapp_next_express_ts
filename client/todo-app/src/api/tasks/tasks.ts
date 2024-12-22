@@ -7,7 +7,6 @@ export const createTask = async (userId: string, title: string, description: str
 
 // API call to get all tasks for a user
 export const getTasks = async (token: string | null) => {
-    console.log({ token })
     return apiGet(`/todos`, token);
 };
 

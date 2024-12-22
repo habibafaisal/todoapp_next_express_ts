@@ -16,7 +16,6 @@ export default function RootLayout({
           <Head>
             <title>{metadata.title}</title>
             <meta name="description" content={metadata.description} />
-            {/* Set description */}
           </Head>
           {children}
         </Provider>

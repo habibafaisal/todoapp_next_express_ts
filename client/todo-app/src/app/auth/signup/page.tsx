@@ -13,7 +13,6 @@ const Signup = () => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
-  console.log({ email, password });
 
   const handleSignup = async (event: React.FormEvent) => {
     event.preventDefault();
@@ -21,14 +20,11 @@ const Signup = () => {
     setIsLoading(true);
 
     try {
-      // Call the signUp API function
       const response = await signUp(email, password);
       const { token, userId } = response;
       dispatch(setAuth({ token, userId }));
-      console.log("Signup successful:", response);
       router.push("/dashboard");
     } catch (err: any) {
-      // Handle API errors
       console.error("Signup failed:", err.message);
       setError(err.message || "Something went wrong. Please try again.");
     } finally {

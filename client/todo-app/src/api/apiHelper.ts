@@ -10,7 +10,6 @@ interface RequestOptions {
 
 const apiRequest = async (endpoint: string, options: RequestOptions) => {
     const { method, body, headers } = options;
-    console.log({ headers })
     const response = await fetch(`${BASE_URL}${endpoint}`, {
         method,
         headers: {
@@ -32,7 +31,6 @@ const apiRequest = async (endpoint: string, options: RequestOptions) => {
 // API methods
 export const apiGet = async (endpoint: string, token: string | null) => {
     const headers: any = token ? { Authorization: `Bearer ${token}` } : {};
-    console.log('get', headers);
     return apiRequest(endpoint, { method: "GET", headers });
 };
 
@@ -42,8 +40,6 @@ export const apiPost = async (
     token?: string | null
 ) => {
     const headers: any = token ? { Authorization: `Bearer ${token}` } : {};
-    console.log('post', endpoint, body, token, headers);
-
     return apiRequest(endpoint, { method: "POST", body, headers });
 };
 
@@ -53,8 +49,6 @@ export const apiPut = async (
     token: string | null
 ) => {
     const headers: any = token ? { Authorization: `Bearer ${token}` } : {};
-    console.log('put', headers);
-
     return apiRequest(endpoint, { method: "PUT", body, headers });
 };
 
