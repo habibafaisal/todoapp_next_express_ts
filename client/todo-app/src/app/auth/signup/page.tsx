@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import { signUp } from "@/api/auth/auth";
 import { useDispatch } from "react-redux";
 import { setAuth } from "@/store/auth/authSlice";
+import { validateEmail, validatePassword } from "@/utils/validation";
 
 const Signup = () => {
   const router = useRouter();
@@ -11,12 +12,27 @@ const Signup = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [emailError, setEmailError] = useState<string | null>(null);
+  const [passwordError, setPasswordError] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
 
   const handleSignup = async (event: React.FormEvent) => {
     event.preventDefault();
     setError(null);
+
+    // Validate inputs
+    if (!validateEmail(email)) {
+      setError("Invalid email format.");
+      return;
+    }
+
+    const passwordError = validatePassword(password);
+    if (passwordError) {
+      setError(passwordError);
+      return;
+    }
+
     setIsLoading(true);
 
     try {
