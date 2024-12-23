@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-        "build": "tsc",
-"start": "node dist/server.js",
+    "build": "tsc",
+    "start": "node dist/server.js",
     "dev": "ts-node-dev --files src/server.ts"
   },
   "keywords": [],
@@ -13,7 +13,7 @@
   "description": "",
   "dependencies": {
     "@types/cors": "^2.8.17",
-    "bcrypt": "^5.1.1",
+    "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
