@@ -3,7 +3,7 @@ export default function Home() {
     <main className="flex min-h-screen items-center justify-center bg-gray-50 text-gray-800 font-sans">
       <div className="text-center p-8 bg-white shadow-xl rounded-lg w-full max-w-md">
         <h1 className="text-5xl font-extrabold text-blue-600 mb-4 transition duration-300 transform hover:scale-105">
-          Habiba's To-Do List
+          To-Do App
         </h1>
         <p className="text-lg text-gray-600 mb-6">
           Organize your tasks with ease and stay productive.
