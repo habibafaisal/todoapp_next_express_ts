@@ -46,9 +46,10 @@ npm run dev
 - **DELETE /api/todos/:id**: Delete a specific To-Do item.
 
 
-## Test credentials
+## Test Credentials
 
-email: habiba@gmail.com
-password: Abc.123!
+- email: habiba@gmail.com
+- password: Abc.123!
+
 
 
