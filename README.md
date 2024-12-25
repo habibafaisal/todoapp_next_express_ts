@@ -1,7 +1,7 @@
 # To-Do List Application - Full-Stack Developer Task
 
 ## Project Overview
-This is a simple To-Do List application built using **Next.js**, **TypeScript**, **TailwindCSS**, **Node.js**, **Express.js**, **GraphQL**, **MongoDB**, and **JWT** authentication. The application includes user authentication, and basic CRUD functionality for managing To-Do items.
+This is a simple To-Do List application built using **Next.js**, **TypeScript**, **TailwindCSS**, **Node.js**, **Express.js**, **MongoDB**, and **JWT** authentication. The application includes user authentication, and basic CRUD functionality for managing To-Do items.
 
 **Live Demo**: [To-Do App](https://todoapp-next-express-ts-2gvu.vercel.app/dashboard)
 
